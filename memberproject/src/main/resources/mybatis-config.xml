@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- mapUnderscoreToCamelCase -->
+    <!-- DB 컬러명과 자바 변수명을 자동으로 맵핑해주는 기능 ( REG_DATE -> regDate ) -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+    <!-- typeAliases(package) -->
+    <!-- 도메인 경로의 디폴트값을 지정 ( 이로인해 도메인 파일 지정 시 파일명으로만 지정 가능 -->
+    <typeAliases>
+        <package name="com.mybatis.memberproject.domain" />
+    </typeAliases>
+
+</configuration>

@@ -12,10 +12,10 @@ public interface MemberDAO {
     public void insert(Member member) throws Exception;
 
     // 회원 권한 삽입
-    public void insert(MemberAuth memberAuth) throws Exception;
+    public void insertAuth(MemberAuth memberAuth) throws Exception;
 
     // 회원 이메일 삽입
-    public void insert(MemberEmail MemberEmail) throws Exception;
+    public void insertEmail(MemberEmail MemberEmail) throws Exception;
 
     // 회원정보 출력 ( Member 테이블만 )
     // 전체 리스트를 가져오는 메소드이기에 매개변수를 필요로하지 않음 -> select * from member; 만 실행하면 되기 때문
