@@ -1,16 +1,15 @@
-package com.mybatis.memberproject.mapper;
-
+package com.mybatis.memberproject.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
+
 
 import com.mybatis.memberproject.domain.Member;
 import com.mybatis.memberproject.domain.MemberAuth;
 import com.mybatis.memberproject.domain.MemberEmail;
 
-@Mapper
-public interface MemberDAO {
+
+public interface MemberDAOService {
     // 회원 정보 생성
     public void insert(Member member) throws Exception;
 
@@ -21,12 +20,9 @@ public interface MemberDAO {
     public void insertEmail(MemberEmail MemberEmail) throws Exception;
 
     // 회원정보 출력 ( Member 테이블만 )
-    // 전체 리스트를 가져오는 메소드이기에 매개변수를 필요로하지 않음 -> select * from member; 만 실행하면 되기 때문
     public List<Member> selectAll() throws Exception;
 
     // 회원정보 전체 출력 ( Join 쿼리문을 이용하여 Member, Auth, Email 테이블을 전부 가져옴 )
-    // 검색한 한명만 출력하는 메소드이기에 리턴값을 Member로 지정
-    // 검색을 위해 no 를 가져올 매개변수 Member member가 필요로 함. #{no}는 도메인에 있는 Member.java의 getNo()함수를 통해 추출해오기 때문
     public Member selectJoin(Member member) throws Exception;
 
     // 회원 정보 수정

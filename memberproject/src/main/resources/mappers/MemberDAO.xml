@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mybatis.memberproject.mapper.MemberDAO.java">
+<mapper namespace="com.mybatis.memberproject.mapper.MemberDAO">
 
 <!-- 외부 조인에 대한 매핑을 정의 -->
  <resultMap id="MemberMap" type="Member">
@@ -77,4 +77,15 @@
     WHERE NO = #{no}
  </delete>
 
+ <!-- public void deleteAuth(Member member) throws Exception; -->
+  <delete id="deleteAuth" parameterType="Member">
+    DELETE FROM MEMBER_AUTH
+    WHERE NO = #{no}
+  </delete>
+
+  <!-- public void deleteEmail(Member member) throws Exception; -->
+   <delete id="deleteEmail" parameterType="Member">
+    DELETE FROM MEMBER_EMAIL
+    WHERE NO = #{no}
+   </delete>
 </mapper>
