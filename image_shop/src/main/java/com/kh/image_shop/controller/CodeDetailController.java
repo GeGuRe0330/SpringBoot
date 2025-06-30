@@ -30,7 +30,7 @@ public class CodeDetailController {
         model.addAttribute(codeDetail);
         List<CodeLabelValue> groupCodeList = codeService.getCodeGroupList();
         model.addAttribute("groupCodeList", groupCodeList);
-        return "/codedetail/register";
+        return "codedetail/register";
     }
 
     // 등록 처리
@@ -45,7 +45,7 @@ public class CodeDetailController {
     @GetMapping("/list")
     public String list(Model model) throws Exception {
         model.addAttribute("list", codeDetailService.list());
-        return "/codedetail/list";
+        return "codedetail/list";
     }
 
     // 상세 페이지
@@ -54,7 +54,7 @@ public class CodeDetailController {
         model.addAttribute(codeDetailService.read(codeDetail));
         List<CodeLabelValue> groupCodeList = codeService.getCodeGroupList();
         model.addAttribute("groupCodeList", groupCodeList);
-        return "/codedetail/read";
+        return "codedetail/read";
     }
 
     // 수정 페이지
@@ -64,7 +64,7 @@ public class CodeDetailController {
         // 그룹코드 목록을 조회하여 뷰에 전달
         List<CodeLabelValue> groupCodeList = codeService.getCodeGroupList();
         model.addAttribute("groupCodeList", groupCodeList);
-        return "/codedetail/modify";
+        return "codedetail/modify";
     }
 
     // 수정 처리

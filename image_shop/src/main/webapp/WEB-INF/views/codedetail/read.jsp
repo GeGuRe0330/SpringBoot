@@ -35,8 +35,7 @@
                     <spring:message code="codedetail.groupCode" />
                 </td>
                 <td>
-                    <form:select path="groupCode" items="${groupCodeList}" itemValue="value"
-                        itemLabel="label" readonly="true" id="groupCode"/>
+                    <form:select path="groupCode" items="${groupCodeList}" itemValue="value" itemLabel="label" disabled="true" id="groupCode"/>
                 </td>
                 <td>
                     <font color="red">

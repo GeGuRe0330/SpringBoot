@@ -5,17 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.kh.image_shop.domain.CodeGroup;
 import com.kh.image_shop.service.CodeGroupService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -30,10 +29,11 @@ public class CodeGroupController {
 
     // 등록페이지
     @GetMapping("/register")
-    public String registerForm(Model model) throws Exception{
+    public String registerForm(HttpServletRequest request,Model model) throws Exception{
+        log.info("요청 URI = {}", request.getRequestURI());
         CodeGroup codeGroup = new CodeGroup();
         model.addAttribute("codeGroup", codeGroup);
-        return "/codegroup/register";
+        return "codegroup/register";
     }
 
     @PostMapping("/register")
@@ -47,14 +47,14 @@ public class CodeGroupController {
     @GetMapping("/list")
     public String list(Model model) throws Exception{
         model.addAttribute("list", service.list());
-        return "/codegroup/list";
+        return "codegroup/list";
     }
     
     // 상세 페이지
     @GetMapping("/read")
     public String read(String groupCode, Model model) throws Exception{
         model.addAttribute(service.read(groupCode));
-        return "/codegroup/read";
+        return "codegroup/read";
     }
 
     //수정 페이지

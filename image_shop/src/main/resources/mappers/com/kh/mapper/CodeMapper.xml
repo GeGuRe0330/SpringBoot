@@ -9,4 +9,13 @@
     WHERE USE_YN = 'Y'
     ORDER BY GROUP_NAME
 </select>
+<!-- public List<CodeLabelValue> getCodeList(String groupCode) throws Exception; -->
+ <select id="getCodeList" resultType="CodeLabelValue">
+    SELECT CODE_VALUE AS VALUE,
+    CODE_NAME AS LABEL
+    FROM CODE_DETAIL
+    WHERE GROUP_CODE = #{groupCode}
+    AND USE_YN = 'Y'
+    ORDER BY SORT_SEQ
+ </select>
 </mapper>

@@ -8,6 +8,17 @@
 <head>
     <meta charset="UTF-8">
     <title>register</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                "Malgun Gothic", Arial, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
