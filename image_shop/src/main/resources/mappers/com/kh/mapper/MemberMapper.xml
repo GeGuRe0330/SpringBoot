@@ -75,4 +75,11 @@
       SELECT COUNT(*)
       FROM MEMBER
     </select>
+   
+   <!-- public Member readByUserId(String userId); -->
+    <select id="readByUserId" resultMap="memberMap">
+      SELECT MEM.USER_NO, MEM.USER_ID, USER_PW, USER_NAME, JOB, COIN, ENABLED, REG_DATE, UPD_DATE, AUTH
+      FROM MEMBER MEM LEFT OUTER JOIN MEMBER_AUTH AUTH ON MEM.USER_NO = AUTH.USER_NO
+      WHERE MEM.USER_ID = #{userId}
+    </select>
 </mapper>
