@@ -17,7 +17,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-
 import com.kh.image_shop.common.security.CustomAccessDeniedHandler;
 import com.kh.image_shop.common.security.CustomLoginSuccessHandler;
 import com.kh.image_shop.common.security.CustomUserDetailsService;
@@ -51,6 +50,13 @@ public class SecurityConfig {
                 .key("gegure")
                 .tokenRepository(createJDBCRepository())
                 .tokenValiditySeconds(60 * 60 * 24);
+
+        // 로그아웃을 하면 자동 로그인에 사용하는 쿠키도 삭제한다
+        http.logout()
+                .logoutUrl("/auth/logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("remember-me", "JSESSION_ID");
+
         return http.build();
     }
 

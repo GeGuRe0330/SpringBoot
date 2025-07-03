@@ -20,4 +20,10 @@ public class LoginController {
         }
         return "auth/loginForm";
     }
+
+    // 로그아웃 페이지
+    @RequestMapping("/logout")
+    public String logoutForm() {
+        return "auth/logoutForm";
+    }
 }
