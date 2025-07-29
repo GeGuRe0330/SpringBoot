@@ -1,6 +1,7 @@
 package com.kh.image_shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Slf4j
 @Controller
 @RequestMapping("/codegroup")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class CodeGroupController {
 
     @Autowired
@@ -45,6 +47,7 @@ public class CodeGroupController {
     
     // 목록 페이지
     @GetMapping("/list")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String list(Model model) throws Exception{
         model.addAttribute("list", service.list());
         return "codegroup/list";
